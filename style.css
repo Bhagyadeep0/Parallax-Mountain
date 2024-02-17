@@ -1,0 +1,324 @@
+@import url("https://fonts.googleapis.com/css2?family=Protest+Revolution&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Saira+Semi+Condensed:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+*,
+*::after,
+*::before {
+  font-family: "Saira Semi Condensed", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+.navBar {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999;
+}
+nav {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex; 
+  margin: 0 auto;
+  justify-content: space-around;
+  align-items: center;
+  color: #fff;
+  z-index: 999;
+  transition: background-color 0.2s ease;
+}
+
+.scrolled {
+  background-color: #100e0f;
+}
+nav::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  display: block;
+  width: 100%;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.12);
+}
+nav .logo {
+  text-decoration: none;
+  color: #fff;
+  font-size: 2.5em;
+}
+
+/* wide screen menu */
+.menu {
+  display: flex;
+  justify-content: end;
+}
+.menu li {
+  list-style: none;
+  margin: 0 1em;
+}
+.menu li a {
+  text-decoration: none;
+  font-size: 2em;
+  color: #fff;
+}
+.menu li a::after,
+.mobile-menu li a::after {
+  content: "";
+  display: block;
+  left: 0;
+  width: 0;
+  background: #fff;
+  height: 2px;
+  transition: width 0.2s ease;
+}
+.menu li a:hover:after,
+.mobile-menu li a:hover::after {
+  width: 100%;
+}
+
+/* parallax styling */
+.wrapper {
+  height: 100vh;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  perspective: 10px;
+}
+body::-webkit-scrollbar,
+.wrapper::-webkit-scrollbar {
+  display: none;
+}
+.wrapper::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 100px;
+  background: linear-gradient(to top, #100e0f, transparent);
+  z-index: 999;
+}
+.wrapper header {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  z-index: -11;
+}
+header::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 100px;
+  background: linear-gradient(to top, rgb(16, 14, 15), transparent);
+  z-index: 999;
+}
+header img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+  pointer-events: none;
+}
+header h1 {
+  color: #fff;
+  font-size: 10em;
+  font-family: "Protest Revolution", sans-serif;
+  font-weight: 400;
+  text-shadow: 3px 0px 7px rgba(16, 14, 15, 0.4),
+    -3px 0px 7px rgba(16, 14, 15, 0.4), 0px 4px 7px rgb(16, 14, 15, 0.4);
+}
+
+.text {
+  min-width: 100%;
+  min-height: 100%;
+  background-color: #100e0f;
+  padding: 2em 4em;
+  color: #fff;
+  display: grid;
+  justify-content: center;
+  z-index: 99;
+}
+.text h2 {
+  font-size: 5em;
+  text-align: center;
+  margin-top: 0.5em;
+}
+.text p {
+  font-size: 2em;
+  font-weight: 500;
+  padding: 0.5em 0;
+}
+.backGround {
+  transform: translateZ(-10px) scale(2.1);
+}
+.foreGround {
+  transform: translateZ(-5px) scale(1.5);
+}
+.explore {
+  transform: translateZ(-10px) scale(2);
+}
+
+/* mobile screen menu  */
+
+.ham {
+  display: none;
+}
+#checkbox {
+  display: none;
+}
+
+.toggle {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition-duration: 0.3s;
+}
+
+.bars {
+  width: 100%;
+  height: 4px;
+  background-color: rgb(253, 255, 243);
+  border-radius: 5px;
+  transition-duration: 0.3s;
+}
+
+#checkbox:checked ~ .toggle #bar2 {
+  transform: translateY(14px) rotate(60deg);
+  margin-left: 0;
+  transform-origin: right;
+  transition-duration: 0.3s;
+  z-index: 2;
+}
+
+#checkbox:checked ~ .toggle #bar1 {
+  transform: translateY(28px) rotate(-60deg);
+  transition-duration: 0.3s;
+  transform-origin: left;
+  z-index: 1;
+}
+
+#checkbox:checked ~ .toggle {
+  transform: rotate(-90deg);
+}
+
+.mobile-menu {
+  display: none;
+  background: #100e0f;
+  width: 50%;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: -30em;
+  padding: 1em 2em;
+  text-align: center;
+  transition: 0.2s ease-in;
+  transform: none;
+}
+.mobile-menu li {
+  list-style: none;
+  margin-bottom: 2em;
+}
+.mobile-menu li a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 1.5em;
+}
+#checkbox:checked ~ .mobile-menu {
+  left: 0;
+  z-index: 999;
+}
+
+
+/* preloader */
+main{
+opacity: 0;
+}
+#loader{
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  background: #100e0f;
+}
+svg {
+  width: 3.25em;
+  transform-origin: center;
+  animation: rotate4 2s linear infinite;
+ }
+ 
+ circle {
+  fill: none;
+  stroke: hsl(214, 97%, 59%);
+  stroke-width: 2;
+  stroke-dasharray: 1, 200;
+  stroke-dashoffset: 0;
+  stroke-linecap: round;
+  animation: dash4 1.5s ease-in-out infinite;
+ }
+ 
+ @keyframes rotate4 {
+  100% {
+   transform: rotate(360deg);
+  }
+ }
+ 
+ @keyframes dash4 {
+  0% {
+   stroke-dasharray: 1, 200;
+   stroke-dashoffset: 0;
+  }
+ 
+  50% {
+   stroke-dasharray: 90, 200;
+   stroke-dashoffset: -35px;
+  }
+ 
+  100% {
+   stroke-dashoffset: -125px;
+  }
+ }
+ 
+
+/* responsiveness */
+
+@media only screen and (max-width: 1194px) {
+  .text {
+    height: max-content;
+  }
+}
+@media only screen and (max-width: 768px) {
+  header h1 {
+    font-size: 7em;
+  }
+  .menu {
+    display: none;
+  }
+  .mobile-menu,
+  .ham {
+    display: block;
+  }
+
+  nav {
+    margin-top: 0;
+  }
+}
+@media only screen and (max-width: 448px) {
+  header h1 {
+    font-size: 5em;
+  }
+}

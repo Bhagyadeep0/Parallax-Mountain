@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Parallax||Mountain</title>
+  </head>
+
+  <body>
+    <div id="loader">
+      <svg viewBox="25 25 50 50">
+        <circle r="20" cy="50" cx="50"></circle>
+      </svg>
+    </div>
+    <main>
+      <nav>
+        <!-- wide screen menu -->
+        <a href="#" class="logo">Logo</a>
+        <ul class="menu">
+          <li><a href="#">Home</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+        <!-- mobile screen menu -->
+        <span class="ham">
+          <input id="checkbox" type="checkbox" />
+          <div class="mobile-menu">
+            <ul>
+              <li><a href="#">Home</a></li>
+              <li><a href="#">About</a></li>
+              <li><a href="#">Contact</a></li>
+            </ul>
+          </div>
+          <label class="toggle" for="checkbox">
+            <div id="bar1" class="bars"></div>
+            <div id="bar2" class="bars"></div>
+            <div id="bar3" class="bars"></div>
+          </label>
+        </span>
+      </nav>
+
+      <div class="wrapper">
+        <!-- parallax images -->
+        <header>
+          <h1 class="explore">Explore</h1>
+          <img src="/assests/himalayas-mountains.jpg" class="backGround" />
+          <img
+            src="/assests/front-mountains-and-person.png"
+            class="foreGround"
+          />
+        </header>
+        <!-- main content -->
+        <section class="text">
+          <h2>Welcome😁</h2>
+          <p>
+            🦔 Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim
+            voluptate consequuntur eos repellendus, veniam suscipit voluptates
+            illo, architecto optio ut vel aliquid esse eaque possimus voluptatem
+            numquam explicabo hic, officiis similique sequi. Placeat, soluta non
+            ducimus sit enim doloremque corrupti quod delectus veritatis dolore.
+            Nihil assumenda dolorem voluptatum minus porro sed laboriosam
+            aliquid doloribus fugit sunt recusandae veritatis ipsum sint ex
+            earum non, consequatur, itaque vitae dolores reprehenderit tempora.
+            Maiores?
+          </p>
+          <p>
+            🦔 Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim
+            voluptate consequuntur eos repellendus, veniam suscipit voluptates
+            illo, architecto optio ut vel aliquid esse eaque possimus voluptatem
+            numquam explicabo hic, officiis similique sequi. Placeat, soluta non
+            ducimus sit enim doloremque corrupti quod delectus veritatis dolore.
+            Nihil assumenda dolorem voluptatum minus porro sed laboriosam
+            aliquid doloribus fugit sunt recusandae veritatis ipsum sint ex
+            earum non, consequatur, itaque vitae dolores reprehenderit tempora.
+            Maiores?
+          </p>
+          <p>
+            🦔 Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim
+            voluptate consequuntur eos repellendus, veniam suscipit voluptates
+            illo, architecto optio ut vel aliquid esse eaque possimus voluptatem
+            numquam explicabo hic, officiis similique sequi. Placeat, soluta non
+            ducimus sit enim doloremque corrupti quod delectus veritatis dolore.
+            Nihil assumenda dolorem voluptatum minus porro sed laboriosam
+            aliquid doloribus fugit sunt recusandae veritatis ipsum sint ex
+            earum non, consequatur, itaque vitae dolores reprehenderit tempora.
+            Maiores?
+          </p>
+        </section>
+      </div>
+    </main>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const nav = document.querySelector("nav");
+        const header = document.querySelector("header");
+        const wrapper = document.querySelector(".wrapper");
+        const main = document.querySelector("main");
+        const loader = document.getElementById("loader");
+
+        // Calculate the bottom position of the header within the .wrapper
+        const headerBottom = header.offsetTop + header.clientHeight;
+        // 3s time for loader
+        setTimeout(() => {
+          loader.style.display = "none";
+          main.style.opacity = 100 + "%";
+        }, 3000);
+
+        wrapper.addEventListener("scroll", () => {
+          if (wrapper.scrollTop >= headerBottom) {
+            nav.classList.add("scrolled");
+          } else {
+            nav.classList.remove("scrolled");
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
